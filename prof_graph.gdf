@@ -1,0 +1,52 @@
+nodedef>name VARCHAR,label VARCHAR, weight DOUBLE
+A. Prasad Sistla,A. Prasad Sistla,21
+Ajay D. Kshemkalyani,Ajay D. Kshemkalyani,24
+Anastasios Sidiropoulos,Anastasios Sidiropoulos,5
+Barbara Di Eugenio,Barbara Di Eugenio,1
+Bhaskar DasGupta,Bhaskar DasGupta,34
+Bing Liu 0001,Bing Liu 0001,5
+Brian D. Ziebart,Brian D. Ziebart,1
+Dale Reed,Dale Reed,1
+Daniel J. Bernstein,Daniel J. Bernstein,50
+Ian A. Kash,Ian A. Kash,4
+Isabel F. Cruz,Isabel F. Cruz,8
+John Lillis,John Lillis,6
+Jon A. Solworth,Jon A. Solworth,4
+Joseph Hummel,Joseph Hummel,1
+Lenore D. Zuck,Lenore D. Zuck,5
+Luc Renambot,Luc Renambot,7
+Mark Grechanik,Mark Grechanik,2
+Mitchell D. Theys,Mitchell D. Theys,6
+Ouri Wolfson,Ouri Wolfson,31
+Peter C. Nelson,Peter C. Nelson,5
+Philip S. Yu,Philip S. Yu,94
+Piotr J. Gmytrasiewicz,Piotr J. Gmytrasiewicz,11
+Robert H. Sloan,Robert H. Sloan,12
+Tanya Y. Berger-Wolf,Tanya Y. Berger-Wolf,4
+Ugo A. Buy,Ugo A. Buy,3
+V. N. Venkatakrishnan,V. N. Venkatakrishnan,3
+Xiaorui Sun,Xiaorui Sun,2
+Xinhua Zhang,Xinhua Zhang,11
+edgedef>node1 VARCHAR,node2 VARCHAR, weight DOUBLE
+A. Prasad Sistla,Lenore D. Zuck,1
+A. Prasad Sistla,Ouri Wolfson,1
+A. Prasad Sistla,Robert H. Sloan,1
+A. Prasad Sistla,Ouri Wolfson,1
+A. Prasad Sistla,Ouri Wolfson,1
+Bhaskar DasGupta,Tanya Y. Berger-Wolf,1
+Bing Liu 0001,Philip S. Yu,1
+Bing Liu 0001,Philip S. Yu,1
+Daniel J. Bernstein,Jon A. Solworth,1
+Jon A. Solworth,Daniel J. Bernstein,1
+Lenore D. Zuck,A. Prasad Sistla,1
+Ouri Wolfson,A. Prasad Sistla,1
+Ouri Wolfson,Robert H. Sloan,1
+Ouri Wolfson,A. Prasad Sistla,1
+Ouri Wolfson,A. Prasad Sistla,1
+Philip S. Yu,Bing Liu 0001,1
+Philip S. Yu,Bing Liu 0001,1
+Robert H. Sloan,A. Prasad Sistla,1
+Robert H. Sloan,Ouri Wolfson,1
+Robert H. Sloan,Ugo A. Buy,1
+Tanya Y. Berger-Wolf,Bhaskar DasGupta,1
+Ugo A. Buy,Robert H. Sloan,1

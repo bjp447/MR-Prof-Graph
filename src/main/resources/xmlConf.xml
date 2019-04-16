@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<configuration>
+
+    <!--https://dblp.uni-trier.de/faq/16154937-->
+    <!--posiible choices-->
+
+    <!--article ? An article from a journal or magazine.-->
+    <!--inproceedings ? A paper in a conference or workshop proceedings.-->
+    <!--proceedings ? The proceedings volume of a conference or workshop.-->
+    <!--book ? An authored monograph or an edited collection of articles.-->
+        <!--note that books contains <editor> not <author>-->
+    <!--incollection ? A part or chapter in a monograph.-->
+    <!--phdthesis ? A PhD thesis.-->
+    <!--mastersthesis ? A Master's thesis. There are only very few Master's theses in dblp.-->
+    <!--www ? A web page. There are only very few web pages in dblp. See also the notes on person records.-->
+
+    <property>
+        <name>xmlProcess.tags.blockTags</name>
+        <value>article,inproceedings,incollection,phdthesis,mastersthesis</value>
+    </property>
+
+    <property>
+        <name>xmlProcess.uic_cs_profs</name>
+        <value>Tanya Y. Berger-Wolf,Daniel J. Bernstein,Emanuelle Burton,
+            Cornelia Caragea,Debaleena Chattopadhyay,Barbara Di Eugenio,
+            Jakob Eriksson,Piotr J. Gmytrasiewicz,Mark Grechanik,Chris Kanich,
+            Robert V. Kenyon,Ajay D. Kshemkalyani,John Lillis,William Mansky,
+            G. Elisabeta Marai,Georgeta Elisabeta Marai,Evan McCarty,Nasim Mobasheri,
+            Natalie Parde,Natalie Paige Parde,Iasonas Polakis,Jason Polakis,Shanon M. Reckinger,
+            Scott J. Reckinger,Dale Reed,Luc Renambot,Anastasios Sidiropoulos,Jon A. Solworth,
+            Brent Stephens,Xiaorui Sun,Mitchell D. Theys,Patrick Troy,Balajee Vamanan,Ouri Wolfson,
+            Ouri E. Wolfson,Xingbo Wu,Elena Zheleva,Brian D. Ziebart,Lenore D. Zuck,John T. Bell,
+            Gonzalo A. Bello,Ugo Buy,Ugo A. Buy,Isabel F. Cruz,Bhaskar DasGupta,Joseph Hummel,
+            Andrew E. Johnson,Ian A. Kash,Bing Liu 0001,Peter C. Nelson,A. Prasad Sistla,
+            Prasad Sistla,Robert H. Sloan,V. N. Venkatakrishnan,Philip S. Yu,Xinhua Zhang,
+            David Hayes,Cody Cranch
+        </value>
+    </property>
+
+    <property>
+        <name>xmlProcess.task.timeoutTime</name>
+        <value>600000</value>
+    </property>
+
+</configuration>
