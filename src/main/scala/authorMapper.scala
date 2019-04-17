@@ -80,7 +80,6 @@ class authorMapper extends Mapper[LongWritable, Text, Text, Text]
       val authors = (block \ "author")
         .filter(a => profs.contains(a.text))
         .map(a => a.text)
-      authors.foreach { author =>
 		
       //write author connections
       authors.foreach { author =>
@@ -92,7 +91,6 @@ class authorMapper extends Mapper[LongWritable, Text, Text, Text]
           this.logger.info("writing k: " + author + ", v: " + a + "\n")
         }
       }
-
     }
     catch {
       case e: Exception => this.logger.warn("failed to convert string to XML. may hvae contained unrecognized untity reference.\n" +
