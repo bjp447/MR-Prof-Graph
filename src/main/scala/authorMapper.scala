@@ -7,10 +7,21 @@ import scala.xml.XML
 class authorMapper extends Mapper[LongWritable, Text, Text, Text]
 {
   private val logger = Logger.getLogger(classOf[authorMapper])
-
-//  BasicConfigurator.configure()
+  
+  /*
+  * External encoding resolving file.
+  */
+  private val dblp_url = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<!DOCTYPE dblp SYSTEM " +
+    "\"" + this.getClass.getClassLoader.getResource("dblp.dtd").toURI.toASCIIString + "\">\n<dblp>\n"
 
   private var profs: Array[String] = initProfs()
+  
+  /*
+  * Resolves external encodings of an xml block
+  */
+  private def xmlBlock(value: String): Seq[Node] = {
+    XML.loadString(this.dblp_url + value.concat("\n</dblp>")).child
+  }
 
   def isUIC_CS_prof(name: String): Boolean =
   {
@@ -61,33 +72,24 @@ class authorMapper extends Mapper[LongWritable, Text, Text, Text]
     this.logger.info("---------------------MAPPER_RECIEVED_END---------------------\n")
 
     try {
-      val uri = this.getClass.getClassLoader.getResource("dblp.dtd").toURI
-      val n = ("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<!DOCTYPE dblp SYSTEM " +
-        "\"" + uri.toASCIIString + "\">\n<dblp>\n").concat(value.toString.concat("\n</dblp>"))
-
       logger.info("Progress: " + context.getProgress)
 
-      val block = XML.loadString(n.toString)
+      val block = xmlBlock(value.toString())
 
-      val authors = for {
-        p <- block.child
-        a <- p.child
-        if a.label.equals("author") && isUIC_CS_prof(a.text)
-      } yield a.text
-
+      //produce a list of uic cs professors for a xml block
+      val authors = (block \ "author")
+        .filter(a => profs.contains(a.text))
+        .map(a => a.text)
+      authors.foreach { author =>
+		
       //write author connections
-      for (author <- authors)
-      {
+      authors.foreach { author =>
         val auth = new Text(author)
         context.write(auth, new Text("1")) //write that this author wrote 1 publication, authors node weight
         this.logger.info("writing k: " + author + ", v: 1" + "\n")
-        for (a <- authors)
-        {
-          if (author != a)
-          {
-            context.write(auth, new Text(a)) //connection
-            this.logger.info("writing k: " + author + ", v: " + a + "\n")
-          }
+        authors.filter(a => a != author).foreach { a =>
+          context.write(auth, new Text(a)) //edge
+          this.logger.info("writing k: " + author + ", v: " + a + "\n")
         }
       }
 
